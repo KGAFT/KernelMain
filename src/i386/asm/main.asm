@@ -1,4 +1,5 @@
 global start
+extern Main386
 extern LongModeStart
 
 section .multiboot_header
@@ -28,7 +29,7 @@ start:
 
     call SetupMemoryPageTables
     call EnablePaging
-
+	call Main386
 
     ;Entering into long mode
     lgdt [gdt64.pointer]
